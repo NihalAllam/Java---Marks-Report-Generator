@@ -1,0 +1,22 @@
+class TestMultiPriority extends Thread
+{
+    // Constructor accepting thread name
+    TestMultiPriority(String name) {
+        super(name); // set thread name using parent Thread constructor
+    }
+
+    public void run()
+    {
+        System.out.println("running thread name is: " + Thread.currentThread().getName() + " " + + Thread.currentThread().getPriority());
+    }
+
+    public static void main(String args[])
+    {
+        TestMultiPriority m1 = new TestMultiPriority("Moss");
+        TestMultiPriority m2 = new TestMultiPriority("Nene");
+        m1.setPriority(Thread.MIN_PRIORITY);
+        m2.setPriority(Thread.MAX_PRIORITY);
+        m1.start();
+        m2.start();
+    }
+}
